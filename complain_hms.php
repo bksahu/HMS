@@ -87,6 +87,11 @@
 			    </div>
 			</div>
 
+				<div class="form-group" id="text"> 
+			      <label class="col-form-label">Remarks</label>
+			      <textarea class="form-control" cols="80" id="message" name="message" rows="1"></textarea>
+			    </div>
+
 				<button type="submit" class="btn btn-primary">Submit</button>
      		</div>
 		</form>
