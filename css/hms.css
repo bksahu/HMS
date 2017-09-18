@@ -1,0 +1,78 @@
+.navbar-height {
+	height: 70px;
+}
+
+.account-box
+{
+    border: 2px solid rgba(0,0,0,0.15);
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -o-border-radius: 2px;
+    z-index: 3;
+    font-size: 13px !important;
+    font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.forgotLnk
+{
+    margin-top: 10px;
+    display: block;
+}
+
+.purple-bg
+{
+    background-color: #6E329D;
+    color: #fff;
+}
+.or-box
+{
+    position: relative;
+    border-top: 1px solid #dfdfdf;
+    padding-top: 20px;
+    margin-top:20px;
+}
+
+.account-box .btn:hover
+{
+    color: #fff;
+}	
+
+h1 {
+	color: rgba(0,0,0,.8);
+}
+
+.bg-background {
+	background-image: url('../images/hostels.jpeg');
+	background-position: center top;
+}
+
+/* Navbar bottom line for */
+.nav-line {
+	width: 100%;
+	height: 4px;
+	background: rgba(0,0,0,0.15);
+	display: block;
+	content: "";
+	bottom: -4px;
+	position: absolute;
+	left: 0;
+	z-index: -1;
+}
+
+/* Override Bootstrap classes */
+.navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+}
+
+/* Border for navbar for tablet & smartphone */
+@media(max-width:992px){
+	.navbar-nav {
+		border : 2px solid rgba(0,0,0,0.15);
+		border-top: none;
+	}
+}
+
