@@ -29,10 +29,10 @@ if (mysqli_connect_errno($connect)) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="css/suiitlogo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Guest HMS</title>
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
 <style>
         .custom{
             width:60%;
@@ -87,7 +87,7 @@ if (mysqli_connect_errno($connect)) {
 <input type="text" name="relation" id="rela"  class="form-control" required="required" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="30" placeholder="Relation" >
 </div>
 </div>
-S
+
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Contact Number : </label>
