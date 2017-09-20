@@ -1,11 +1,35 @@
+<?php
+$connect = mysqli_connect('localhost','root','','final');
 
+if (mysqli_connect_errno($connect)) {
+
+
+	echo "failed to connect";
+	# code...
+}
+  $full_name = $_POST['full_name'];
+  $relation = $_POST['relation'];
+  $contact_number = $_POST['contact_number'];
+  $arrival = $_POST['arrival'];
+  $departure = $_POST['departure'];
+  
+
+
+
+
+
+ mysqli_query($connect,"INSERT INTO guest_hms(full_name,relation,contact_number,arrival,departure)
+ 	VALUES('$full_name','$relation','$contact_number','$arrival','$departure')");
+
+
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="../images/Sambalpur-University-Logo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Guest HMS</title>
 	
 	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
@@ -51,7 +75,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Full Name : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Full Name" >
+<input type="text" name="full_name" id="fullname"  class="form-control" required="required" placeholder="Full Name" >
 </div>
 </div>
 
@@ -60,7 +84,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Relation : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="30" placeholder="Relation" >
+<input type="text" name="relation" id="rela"  class="form-control" required="required" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="30" placeholder="Relation" >
 </div>
 </div>
 
@@ -68,14 +92,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Contact Number : </label>
 <div class="col-sm-8">
-<input type="Number" name="Contact" id="contactnumber" class="form-control" aria-describedby="passwordHelpInline" placeholder="Contact Number" required="required" >
+<input type="Number" name="contact_number" id="contactnumber" class="form-control" aria-describedby="passwordHelpInline" placeholder="Contact Number" required="required" >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Arrival :</label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="checkin" name="arrival" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -84,7 +108,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Departure :</label>
 <div class="col-sm-8">
-<input class="form-control" id="checkout" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="checkout" name="departure" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 

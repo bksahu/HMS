@@ -1,3 +1,58 @@
+<?php
+$connect = mysqli_connect('localhost','root','','final');
+
+if (mysqli_connect_errno($connect)) {
+
+
+	echo "failed to connect";
+	# code...
+}
+  $student_id = $_POST['student_id'];
+  $student_name = $_POST['student_name'];
+  $branch = $_POST['branch'];
+  $roll_no = $_POST['roll_no'];
+  $contact_no = $_POST['contact_no'];
+  $email_id = $_POST['email_id'];
+  $date_of_birth = $_POST['date_of_birth'];
+  $address = $_POST['address'];
+  $father_name = $_POST['father_name'];
+  $father_occupation = $_POST['father_occupation'];
+  $father_contact_no = $_POST['father_contact_no'];
+  $mother_name = $_POST['mother_name'];
+  $mother_occupation = $_POST['mother_occupation'];
+  $mother_contact_no = $_POST['mother_contact_no'];
+  $mother_email_id = $_POST['mother_email_id'];
+  $home_address = $_POST['home_address'];
+  $office_address = $_POST['office_address'];
+  $local_guardian_name = $_POST['local_guardian_name'];
+  $relationship = $_POST['relationship'];
+  $guardian_contact_no = $_POST['guardian_contact_no'];
+  $guardian_email_id = $_POST['guardian_email_id'];
+  $guardian_occupation = $_POST['guardian_occupation'];
+  $local_guardian_address = $_POST['local_guardian_address'];
+  $hostel_name = $_POST['hostel_name'];
+  $room_type = $_POST['room_type'];
+  $room_no = $_POST['room_no'];
+  $last_room_change_dt = $_POST['last_room_change_dt'];
+  $starting_date = $_POST['starting_date'];
+  $leaving_date = $_POST['leaving_date'];
+  $status = $_POST['status'];
+  $remarks = $_POST['remarks'];
+  
+
+
+
+
+
+ mysqli_query($connect,"INSERT INTO student_hms(student_id,student_name,branch,roll_no,contact_no,email_id,date_of_birth,address,father_name,father_occupation,father_contact_no,mother_name,mother_occupation,mother_contact_no ,mother_email_id,home_address,office_address,local_guardian_name,relationship,guardian_contact_no,guardian_email_id,guardian_occupation,local_guardian_address,hostel_name,room_type,room_no,last_room_change_dt,starting_date,leaving_date,status,remarks )
+ VALUES('$student_id','$student_name','$branch','$roll_no','$contact_no','$email_id','$date_of_birth','$address','$father_name','$father_occupation','$father_contact_no','$mother_name','$mother_occupation','$mother_contact_no' ,'$mother_email_id','$home_address','$office_address','$local_guardian_name','$relationship','$guardian_contact_no','$guardian_email_id','$guardian_occupation','$local_guardian_address','$hostel_name','$room_type','$room_no','$last_room_change_dt','$starting_date','$leaving_date','$status','$remarks')");
+
+
+?>
+
+
+
+
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -5,7 +60,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="../images/Sambalpur-University-Logo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Student Details</title>
 	
 	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
@@ -50,7 +105,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Student ID : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Student ID" >
+<input type="text" name="student_id" id="studentid"  class="form-control" required="required" placeholder="Student ID" >
 </div>
 </div>
 
@@ -58,7 +113,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Student Name : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Student Name" >
+<input type="text" name="student_name" id="studentname"  class="form-control" required="required" placeholder="Student Name" >
 </div>
 </div>
 
@@ -67,19 +122,19 @@
 <div class="col-sm-8">
 <select name="branch" class="form-control" required="required">
         <option value="">Select Branch</option>
-        <option value="1">BTech CSE</option>
-        <option value="2">BTech ECE</option>        
-        <option value="3">BTech EEE</option>
-        <option value="4">MCA</option>        
-        <option value="5">MSc CS</option>
-        <option value="6">MSc EL</option> 
-        <option value="7">MSc BT</option>
-        <option value="8">MSc BI</option>              
-        <option value="9">MTech CSE</option>
-        <option value="10">MTech CS</option>
-        <option value="11">MTech ESD</option> 
-        <option value="12">MPhil CS</option> 
-        <option value="13">MPhil EL</option>  
+        <option value="BTech CSE">BTech CSE</option>
+        <option value="BTech ECE">BTech ECE</option>        
+        <option value="BTech EEE">BTech EEE</option>
+        <option value="MCA">MCA</option>        
+        <option value="MSc CS">MSc CS</option>
+        <option value="MSc EL">MSc EL</option> 
+        <option value="MSc BT">MSc BT</option>
+        <option value="MSc BI">MSc BI</option>              
+        <option value="MTech CSE">MTech CSE</option>
+        <option value="MTech CS">MTech CS</option>
+        <option value="MTech ESD">MTech ESD</option> 
+        <option value="MPhil CS">MPhil CS</option> 
+        <option value="MPhil EL">MPhil EL</option>  
 </select>
 </div>
 </div>
@@ -87,14 +142,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Roll Number : </label>
 <div class="col-sm-8">
-<input type="text" name="mname" id="regno"  class="form-control" placeholder="Roll Number">
+<input type="text" name="roll_no" id="rollno"  class="form-control" placeholder="Roll Number">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Contact No : </label>
 <div class="col-sm-8">
-<input type="text" name="contact" id="contact"  class="form-control" required="required" placeholder="Contact No">
+<input type="number" name="contact_no" id="contactno"  class="form-control" required="required" placeholder="Contact No">
 </div>
 </div>
 
@@ -102,7 +157,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Email id: </label>
 <div class="col-sm-8">
-<input type="email" name="email" id="email"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Email id">
+<input type="email" name="email_id" id="emailid"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Email id">
 <span id="user-availability-status" style="font-size:12px;"></span>
 </div>
 </div>
@@ -111,14 +166,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Date Of Birth: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="dateofbirth" name="date_of_birth" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Address : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Address" >
+<input type="text" name="address" id="add"  class="form-control" required="required" placeholder="Address" >
 </div>
 </div>
 
@@ -126,28 +181,28 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Father's Name : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Father's Name" >
+<input type="text" name="father_name" id="fname"  class="form-control" required="required" placeholder="Father's Name" >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Father's Occupation : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Father's Occupation">
+<input type="text" name="father_occupation" id="focc"  class="form-control" required="required" placeholder="Father's Occupation">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Father's Contact No : </label>
 <div class="col-sm-8">
-<input type="number" name="contact" id="contact"  class="form-control" required="required" placeholder="Father's Contact No">
+<input type="number" name="father_contact_no" id="contact"  class="form-control" required="required" placeholder="Father's Contact No">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Father's Email id: </label>
 <div class="col-sm-8">
-<input type="email" name="email" id="email"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Father's Email id">
+<input type="email" name="father_email_id" id="femail"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Father's Email id">
 <span id="user-availability-status" style="font-size:12px;"></span>
 </div>
 </div>
@@ -156,28 +211,28 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Mother's Name : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Mother's Name">
+<input type="text" name="mother_name" id="mname"  class="form-control" required="required" placeholder="Mother's Name">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Mother's Occupation : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Mother's Occupation" >
+<input type="text" name="mother_occupation" id="mocc"  class="form-control" required="required" placeholder="Mother's Occupation" >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Mother's Contact No : </label>
 <div class="col-sm-8">
-<input type="number" name="contact" id="contact"  class="form-control" required="required" placeholder="'s Contact No">
+<input type="number" name="mother_contact_no" id="mcontact"  class="form-control" required="required" placeholder="'s Contact No">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Mother's Email id: </label>
 <div class="col-sm-8">
-<input type="email" name="email" id="email"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Mother's Email id">
+<input type="email" name="mother_email_id" id="memail"  class="form-control" onBlur="checkAvailability()" required="required" placeholder="Mother's Email id">
 <span id="user-availability-status" style="font-size:12px;"></span>
 </div>
 </div>
@@ -185,14 +240,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Home Address : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Home Address" >
+<input type="text" name="home_address" id="homeadd"  class="form-control" required="required" placeholder="Home Address" >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Office Address : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Office Address" >
+<input type="text" name="office_address" id="offadd"  class="form-control" required="required" placeholder="Office Address" >
 </div>
 </div>
 
@@ -200,14 +255,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Local Guardian's Name : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="" placeholder="Local Guardian's Name">
+<input type="text" name="local_guardian_name" id="localguardian"  class="form-control" required="" placeholder="Local Guardian's Name">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Relation : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="" placeholder="Relation">
+<input type="text" name="relationship" id="relation"  class="form-control" required="" placeholder="Relation">
 </div>
 </div>
 
@@ -215,14 +270,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Guardian's Contact No : </label>
 <div class="col-sm-8">
-<input type="number" name="contact" id="contact"  class="form-control" required="" placeholder="Guardian's Contact No">
+<input type="number" name="guardian_contact_no" id="gcontact"  class="form-control" required="" placeholder="Guardian's Contact No">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Guardian's Email id: </label>
 <div class="col-sm-8">
-<input type="email" name="email" id="email"  class="form-control" onBlur="checkAvailability()" required="" placeholder="Guardian's Email id">
+<input type="email" name="guardian_email_id" id="gemail"  class="form-control" onBlur="checkAvailability()" required="" placeholder="Guardian's Email id">
 <span id="user-availability-status" style="font-size:12px;"></span>
 </div>
 </div>
@@ -230,26 +285,32 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Guardian's Occupation : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="" placeholder="Guardian's Occupation">
+<input type="text" name="guardian_occupation" id="gocc"  class="form-control" required="" placeholder="Guardian's Occupation">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Guardian's Address : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="" placeholder="Guardian's Address" >
+<input type="text" name="local_guardian_address" id="gadd"  class="form-control" required="" placeholder="Guardian's Address" >
 </div>
 </div>
 
 
+<div class="form-group">
+<label class="col-sm-2 control-label">Hostel Name : </label>
+<div class="col-sm-8">
+<input type="text" name="hostel_name" id="hname"  class="form-control" required="required" placeholder="Hostel Name">
+</div>
+</div>  
  
 <div class="form-group">
 <label class="col-sm-2 control-label">Room Type : </label>
 <div class="col-sm-8">
-<select name="room" class="form-control" required="required">
+<select name="room_type" class="form-control" required="required">
         <option value="">Select Room Type</option>
-        <option value="1">Single</option>
-        <option value="2">Double</option>        
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>        
         
 </select>
 </div>
@@ -258,7 +319,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Room No : </label>
 <div class="col-sm-8">
-<input type="number" name="roomno" id="roomno"  class="form-control" required="required" placeholder="Room No">
+<input type="number" name="room_no" id="roomno"  class="form-control" required="required" placeholder="Room No">
 </div>
 </div>  
 
@@ -266,7 +327,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Last Room Change Date: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="lastchange" name="last_room_change_dt" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -274,7 +335,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Starting Date: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="startingdate" name="starting_date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -282,7 +343,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Leaving Date: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="leavingdate" name="leaving_date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -292,8 +353,8 @@
 <div class="col-sm-8">
 <select name="status" class="form-control" required="required">
         <option value="">Select Current Status</option>
-        <option value="1">Staying</option>
-        <option value="2">Leaved</option>        
+        <option value="Staying">Staying</option>
+        <option value="Leaved">Leaved</option>        
         
 </select>
 </div>
@@ -303,7 +364,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Remarks : </label>
 <div class="col-sm-8">
-<input type="text" name="remark" id="remark"  class="form-control" required="required" placeholder="Remarks">
+<input type="text" name="remarks" id="remark"  class="form-control" required="required" placeholder="Remarks">
 </div>
 </div>  
 

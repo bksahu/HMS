@@ -1,11 +1,35 @@
+<?php
+$connect = mysqli_connect('localhost','root','','final');
 
+if (mysqli_connect_errno($connect)) {
+
+
+	echo "failed to connect";
+	# code...
+}
+  $full_name = $_POST['full_name'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $cpassword = $_POST['cpassword'];
+  $designation = $_POST['designation'];
+  $status = $_POST['status'];
+
+
+
+
+
+ mysqli_query($connect,"INSERT INTO admin_hms(full_name,username,password,cpassword,designation,status)
+ 	VALUES('$full_name','$username','$password','$cpassword','$designation','$status')");
+
+
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="../images/Sambalpur-University-Logo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Admin HMS</title>
 	
 	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
@@ -42,7 +66,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Full Name : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Full Name" >
+<input type="text" name="full_name" id="fname"  class="form-control" required="required" placeholder="Full Name" >
 </div>
 </div>
 
@@ -51,7 +75,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Username : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="30" placeholder="Username" >
+<input type="text" name="username" id="un"  class="form-control" required="required" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="30" placeholder="Username" >
 </div>
 </div>
 
@@ -59,7 +83,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Password : </label>
 <div class="col-sm-8">
-<input type="Password" name="Password" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline" placeholder="Password" required="required" >
+<input type="Password" name="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline" placeholder="Password" required="required" >
 <small id="passwordHelpInline" class="text-muted"> Must be 8-20 characters long.</small>
 </div>
 </div>
@@ -68,7 +92,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Confirm Password : </label>
 <div class="col-sm-8">
-<input type="Password" name="cPassword" id="cinputPassword" class="form-control" aria-describedby="passwordHelpInline" placeholder="Retype Password" required="required" >
+<input type="Password" name="cpassword" id="cinputPassword" class="form-control" aria-describedby="passwordHelpInline" placeholder="Retype Password" required="required" >
 <small id="passwordHelpInline" class="text-muted"> Must be 8-20 characters long.</small>
 </div>
 </div>
@@ -77,7 +101,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Designation and Status: </label>
 <div class="col-sm-4">
-<select name="Designation" class="form-control" required="required">
+<select name="designation" class="form-control" required="required">
         <option value="">Designation</option>
         <option value="1">Superintendent</option>
 		<option value="2">Asst. superintendent</option>
@@ -87,7 +111,7 @@
 </select>
 </div>
 <div class="col-sm-4">
-<select name="Status" class="form-control" required="required">
+<select name="status" class="form-control" required="required">
         <option value="">Status</option>
         <option value="1">Active</option>
 		<option value="2">Inactive</option>

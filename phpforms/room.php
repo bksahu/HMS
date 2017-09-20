@@ -1,11 +1,39 @@
+<?php
+$connect = mysqli_connect('localhost','root','','final');
 
+if (mysqli_connect_errno($connect)) {
+
+
+	echo "failed to connect";
+	# code...
+}
+  $admin_id = $_POST['admin_id'];
+  $student_id = $_POST['student_id'];
+  $hostel_name = $_POST['hostel_name'];
+  $room_no = $_POST['room_no'];
+  $room_type = $_POST['room_type'];
+  $capacity = $_POST['capacity'];
+  $block_no = $_POST['block_no'];
+  $room_alloted = $_POST['room_alloted'];
+  $remarks = $_POST['remarks'];
+  
+
+
+
+
+
+ mysqli_query($connect,"INSERT INTO room(admin_id,student_id,hostel_name,room_no,room_type,capacity,block_no,room_alloted,remarks)
+ 	VALUES('$admin_id','$student_id','$hostel_name','$room_no','$room_type','$capacity','$block_no','$room_alloted','$remarks')");
+
+
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="../images/Sambalpur-University-Logo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Room </title>
 	
 	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
@@ -42,7 +70,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Admin ID : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Admin ID" >
+<input type="text" name="admin_id" id="adminid"  class="form-control" required="required" placeholder="Admin ID" >
 </div>
 </div>
 
@@ -51,7 +79,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Student ID : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Student ID" >
+<input type="text" name="student_id" id="studentid"  class="form-control" required="required" placeholder="Student ID" >
 </div>
 </div>
 
@@ -59,7 +87,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Hostel Name : </label>
 <div class="col-sm-8">
-<input type="text" name="hostelname" id="hname"  class="form-control" required="required" placeholder=" Hostel Name" >
+<input type="text" name="hostel_name" id="hname"  class="form-control" required="required" placeholder=" Hostel Name" >
 </div>
 </div>
 
@@ -67,7 +95,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Room No : </label>
 <div class="col-sm-8">
-<input type="number" name="roomno" id="roomno"  class="form-control" required="required" placeholder="Room No">
+<input type="number" name="room_no" id="roomno"  class="form-control" required="required" placeholder="Room No">
 </div>
 </div>  
 
@@ -76,10 +104,10 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Room Type : </label>
 <div class="col-sm-8">
-<select name="room" class="form-control" required="required">
+<select name="room_type" class="form-control" required="required">
         <option value="">Select Room Type</option>
-        <option value="1">Single</option>
-        <option value="2">Double</option>        
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>        
         
 </select>
 </div>
@@ -90,7 +118,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Capacity : </label>
 <div class="col-sm-8">
-<select name="room" class="form-control" required="required">
+<select name="capacity" class="form-control" required="required">
         <option value="">Select Capacity</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -110,14 +138,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Block No : </label>
 <div class="col-sm-8">
-<input type="number" name="Blocknum" id="bn"  class="form-control" required="" placeholder="Block No">
+<input type="number" name="block_no" id="bn"  class="form-control" required="" placeholder="Block No">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Room Alloted : </label>
 <div class="col-sm-8">
-<input type="number" name="roomalloted" id="roomalloted"  class="form-control" required="required" placeholder="Room Alloted">
+<input type="number" name="room_alloted" id="roomalloted"  class="form-control" required="required" placeholder="Room Alloted">
 </div>
 </div>
 
@@ -126,7 +154,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Remarks : </label>
 <div class="col-sm-8">
-<input type="text" name="remark" id="remark"  class="form-control" required="required" placeholder="Remarks">
+<input type="text" name="remarks" id="remark"  class="form-control" required="required" placeholder="Remarks">
 </div>
 </div>  
 

@@ -1,3 +1,32 @@
+<?php
+$connect = mysqli_connect('localhost','root','','final');
+
+if (mysqli_connect_errno($connect)) {
+
+
+	echo "failed to connect";
+	# code...
+}
+  $student_id = $_POST['student_id'];
+  $admin_id = $_POST['admin_id'];
+  $amount = $_POST['amount'];
+  $notification_date = $_POST['notification_date'];
+  $notice_no = $_POST['notice_no'];
+  $due_date = $_POST['due_date'];
+  $fine_amount = $_POST['fine_amount'];
+  $total_amount = $_POST['total_amount'];
+  $status = $_POST['status'];
+  $payment_method = $_POST['payment_method'];
+  $refference_no = $_POST['refference_no'];
+  $date_of_collection = $_POST['date_of_collection'];
+  $collected_by = $_POST['collected_by'];
+  $remarks = $_POST['remarks'];
+
+ mysqli_query($connect,"INSERT INTO student_dues(student_id,admin_id,amount,notification_date,notice_no,due_date, fine_amount,total_amount,status,payment_method,refference_no,date_of_collection,collected_by,remarks)
+ 	VALUES('$student_id','$admin_id','$amount','$notification_date','$notice_no','$due_date', '$fine_amount','$total_amount','$status','$payment_method','$refference_no','$date_of_collection','$collected_by','$remarks')");
+
+
+?>
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -5,7 +34,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<link rel="icon" type="text/css" href="../images/Sambalpur-University-Logo.png">
+	<link rel="icon" type="text/css" href="../images/suiitlogo.png">
 	<title>Student Dues</title>
 	
 	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
@@ -49,7 +78,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Student ID : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Student ID" >
+<input type="text" name="student_id" id="studentid"  class="form-control" required="required" placeholder="Student ID" >
 </div>
 </div>
 
@@ -57,7 +86,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Admin ID : </label>
 <div class="col-sm-8">
-<input type="text" name="regno" id="regno"  class="form-control" required="required" placeholder="Admin ID" >
+<input type="text" name="admin_id" id="adminid"  class="form-control" required="required" placeholder="Admin ID" >
 </div>
 </div>
 
@@ -65,7 +94,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Amount : </label>
 <div class="col-sm-8">
-<input type="number" name="mname" id="regno"  class="form-control" placeholder="Amount">
+<input type="number" name="amount" id="am"  class="form-control" placeholder="Amount">
 </div>
 </div>
 
@@ -76,7 +105,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Notification Date: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="notify" name="notification_date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -84,7 +113,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Notification No : </label>
 <div class="col-sm-8">
-<input type="number" name="Notification" id="nn"  class="form-control" required="" placeholder="Notification No">
+<input type="number" name="notice_no" id="nn"  class="form-control" required="" placeholder="Notification No">
 </div>
 </div>
 
@@ -92,7 +121,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Due Date: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="duedate" name="due_date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -100,7 +129,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Fine Amount : </label>
 <div class="col-sm-8">
-<input type="number" name="mname" id="regno"  class="form-control" placeholder="Fine Amount">
+<input type="number" name="fine_amount" id="fineamount"  class="form-control" placeholder="Fine Amount">
 </div>
 </div>
 
@@ -108,7 +137,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Total Amount : </label>
 <div class="col-sm-8">
-<input type="number" name="mname" id="regno"  class="form-control" placeholder="Total Amount">
+<input type="number" name="total_amount" id="tm"  class="form-control" placeholder="Total Amount">
 </div>
 </div>
 
@@ -117,8 +146,8 @@
 <div class="col-sm-8">
 <select name="status" class="form-control" required="required">
         <option value="">Select Current Status</option>
-        <option value="1">Paid</option>
-        <option value="2">Unpaid</option>        
+        <option value="Paid">Paid</option>
+        <option value="Unpaid">Unpaid</option>        
         
 </select>
 </div>
@@ -129,13 +158,13 @@
 <div class="form-group">
 <label class="col-sm-2 control-label"> Payment Method: </label>
 <div class="col-sm-8">
-<select name="Payment" class="form-control" required="required">
+<select name="payment_method" class="form-control" required="required">
         <option value="">Payment Method</option>
-        <option value="1">Net Banking</option>
-        <option value="2">Cheque Deposit</option>  
-        <option value="3">Cash Deposit</option>  
-        <option value="4">Demand Draft</option>
-        <option value="5">Challan Deposit</option>   
+        <option value="Net Banking">Net Banking</option>
+        <option value="Cheque Deposit">Cheque Deposit</option>  
+        <option value="Cash Deposit">Cash Deposit</option>  
+        <option value="Demand Draft">Demand Draft</option>
+        <option value="Challan Deposit">Challan Deposit</option>   
          
         
 </select>
@@ -146,14 +175,14 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Reference Number : </label>
 <div class="col-sm-8">
-<input type="referencenumber" name="mname" id="regno"  class="form-control" placeholder="Reference Number">
+<input type="referencenumber" name="refference_no" id="refno"  class="form-control" placeholder="Reference Number">
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Date Of Collection: </label>
 <div class="col-sm-8">
-<input class="form-control" id="checkin" name="date" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
+<input class="form-control" id="doc" name="date_of_collection" placeholder="DD/MM/YYY" type="text" autocomplete="off" >
 </div>
 </div>
 
@@ -161,7 +190,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Collected By : </label>
 <div class="col-sm-8">
-<input type="text" name="fname" id="fname"  class="form-control" required="required" placeholder="Collected By">
+<input type="text" name="collected_by" id="collectedby"  class="form-control" required="required" placeholder="Collected By">
 </div>
 </div>
 
@@ -169,7 +198,7 @@
 <div class="form-group">
 <label class="col-sm-2 control-label">Remarks : </label>
 <div class="col-sm-8">
-<input type="text" name="remark" id="remarks"  class="form-control" required="required" placeholder="Remarks">
+<input type="text" name="remarks" id="remark"  class="form-control" required="required" placeholder="Remarks">
 </div>
 </div>  
 
