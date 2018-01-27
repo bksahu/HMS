@@ -2,3 +2,6 @@ node_modules
 
 # Folder config file
 Desktop.ini
+
+# Test sql
+hms.sql
